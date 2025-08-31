@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .heading {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: aliceblue;
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .box {
+            border: 2px solid rgba(241, 232, 232, 0.973);
+            min-height: 80px;
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        .box span {
+            position: relative;
+            font-size: 1.5rem;
+            color: #fff;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: color 0.4s ease;
+            border-radius: 8px;
+        }
+
+        .box span::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(250, 245, 245);
+            left: 0;
+            bottom: -100%;
+            border-radius: 50%;
+            transition: all ease 0.4s;
+            z-index: -1;
+        }
+
+        .box span:hover::after {
+            border-radius: 0;
+            bottom: 0;
+        }
+
+        .box span a {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box span:hover a {
+            color: #111;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.856);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            padding: 2rem 0;
+        }
+
+        .content h1 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem 0;
+            color: #fff;
+        }
+
+        .content p {
+            font-family: 'Poppins';
+            border: 3px dashed wheat;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.8;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .explainer {
+            margin: 2rem 0;
+        }
+
+        .eg, .one, .two, .three, .four, .five {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .eg p {
+            font-family: "Martel Sans", sans-serif;
+        }
+
+        pre, code {
+            cursor: pointer;
+            background: rgb(240, 240, 240) !important;
+            color: #333 !important;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: block;
+            overflow-x: auto;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+        }
+
+        .ceg {
+            margin: 2rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #4a9eff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #4a9eff;
+            color: white;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 3rem 2rem;
+            background: #111;
+            border-top: 2px solid #222;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .f-h, .f2 {
+            color: azure;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            font-size: 1rem;
+            font-family: "Poppins";
+            line-height: 2;
+            color: whitesmoke;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links li:hover {
+            color: #4a9eff;
+        }
+
+        .logo {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: linear-gradient(45deg, #4a9eff, #0066cc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Media Queries */
+        @media only screen and (max-width: 1200px) {
+            .heading {
+                font-size: 3rem;
+            }
+            .box span {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.5rem;
+            }
+            .content h1 {
+                font-size: 2.5rem;
+            }
+            .content h2 {
+                font-size: 1.8rem;
+            }
+            .content p, .eg, .one, .two, .three, .four, .five {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .heading {
+                font-size: 2.5rem;
+                padding: 1rem 0;
+            }
+            
+            nav {
+                padding: 1rem 0;
+            }
+            
+            .box {
+                flex-direction: column;
+                width: 95%;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .box span {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .content h1 {
+                font-size: 2rem;
+            }
+            
+            .content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .content p, .eg, .one, .two, .three, .four, .five {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            pre, code {
+                font-size: 12px;
+                padding: 0.8rem;
+            }
+            
+            .foot {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .heading {
+                font-size: 2rem;
+            }
+            
+            .box span {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+            
+            .content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .content p, .eg, .one, .two, .three, .four, .five {
+                font-size: 0.9rem;
+                padding: 1rem;
+            }
+            
+            pre, code {
+                font-size: 11px;
+                padding: 0.6rem;
+            }
+            
+            .container {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="heading">
+            Welcome To QUICK-LEARN
+        </div>
+    </header>
+    
+    <nav>
+        <div class="box">
+            <span class="w"><a href="index.html">Home</a></span>
+            <span class="w"><a href="fixed_tutorial_page.html">Tutorials</a></span>
+            <span class="w"><a href="fixed_notes.html">Notes</a></span>
+            <span class="w"><a href="fixed_impact.html">Applications</a></span>
+            <span class="w al"><a href="#">Compiler</a></span>
+            <span class="w al"><a href="#">Languages</a></span>
+            <span class="w al"><a href="#">Questions</a></span>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <div class="content">
+            <h1>Introduction</h1>
+            
+            <h2>What is OOPS</h2>
+            <p>
+                Object-Oriented Programming (OOP) is a way of writing code where we create objects that combine data and
+                actions together. It helps organize code better by grouping related things into one unit. OOP also makes
+                programs easier to reuse, manage, and scale for bigger projects.
+            </p>
+            
+            <h2>What are 4 fundamental pillars of OOPS?</h2>
+            <p>The four fundamental pillars of OOP are:<br><br>
+                <strong>1. Encapsulation</strong> – It is the process of bundling data (variables) and methods (functions) into a single unit called a class. It also hides the internal details and only exposes necessary parts, keeping data safe.<br><br>
+                <strong>2. Abstraction</strong> – It focuses on showing only the essential features of an object while hiding the complex details. This makes the program easier to understand and reduces unnecessary complexity.<br><br>
+                <strong>3. Inheritance</strong> – It allows one class to reuse the properties and methods of another class. This helps in reducing code duplication and builds a parent-child relationship.<br><br>
+                <strong>4. Polymorphism</strong> – It means "many forms" and allows the same function or method to behave differently based on the object that calls it. This makes code more flexible and dynamic.
+            </p>
+
+            <div class="explainer">
+                <h2 class="eg">Real-life Analogies</h2>
+                <p>
+                    <strong>1. Encapsulation</strong> – A bank account hides details like balance and only allows access through methods like deposit() or withdraw().<br><br>
+                    <strong>2. Abstraction</strong> – When you drive a car, you only use the steering wheel and pedals, but don't worry about the engine's inner working.<br><br>
+                    <strong>3. Inheritance</strong> – A dog is an Animal, so it inherits traits like eating and breathing, but also has its own unique features like barking.<br><br>
+                    <strong>4. Polymorphism</strong> – The word "draw" can mean drawing a shape on paper, or drawing money from an ATM, depending on the context.
+                </p>
+            </div>
+
+            <h2>Code Examples</h2>
+            
+            <div class="ceg">
+                <h3 class="two">Encapsulation</h3>
+                <pre><code class="language-python">
+class Student:
+    def __init__(self, name, age):
+        # Private variable (encapsulation)
+        self.__name = name
+        self.__age = age
+    
+    def get_details(self):
+        return f"Name: {self.__name}, Age: {self.__age}"
+
+# Create object
+s1 = Student("Rahul", 20)
+
+# Access data through method (not directly)
+print(s1.get_details())
+                </code></pre>
+
+                <h3 class="three">Abstraction</h3>
+                <pre><code class="language-python">
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def sound(self):
+        return "Meow"
+
+# Example
+animals = [Dog(), Cat()]
+for a in animals:
+    print(a.sound())
+                </code></pre>
+
+                <h3 class="four">Polymorphism</h3>
+                <pre><code class="language-python">
+class Shape:
+    def area(self):
+        pass
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    def area(self):
+        return self.side * self.side
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+# Example
+shapes = [Square(4), Circle(5)]
+for s in shapes:
+    print(s.area())
+                </code></pre>
+
+                <h3 class="five">Inheritance</h3>
+                <pre><code class="language-python">
+class Vehicle:
+    def __init__(self, brand):
+        self.brand = brand
+
+    def show(self):
+        return f"Brand: {self.brand}"
+
+class Car(Vehicle):   # Inheriting Vehicle
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+
+    def show(self):
+        return f"Car: {self.brand}, Model: {self.model}"
+
+# Example
+c = Car("Toyota", "Corolla")
+print(c.show())
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="foot">
+            <div class="footer-section">
+                <h2 class="f-h">Quick-Learn</h2>
+                <p>Learn programming concepts quickly and effectively</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="f2">Navigation</h3>
+                <div class="footer-links">
+                    <ul>
+                        <li>Home</li>
+                        <li>Tutorials</li>
+                        <li>Compiler</li>
+                        <li>Projects</li>
+                        <li>Contact-Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="logo">
+        QL
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

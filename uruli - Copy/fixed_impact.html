@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications!</title>
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <style>
+        *{
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            overflow-x: hidden;
+        }
+         .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.856);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            min-height: auto;
+        }
+
+        nav {
+            padding-top: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .box {
+            border: 2px solid rgba(241, 232, 232, 0.973);
+            min-height: 10vh;
+            width: min(90vw, 1200px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 4rem);
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .box span {
+            position: relative;
+            font-size: clamp(1.2rem, 2.5vw, 3rem);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .box span::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(250, 245, 245);
+            left: 0;
+            bottom: -100%;
+            border-radius: 50%;
+            transition: all ease 0.4s;
+            z-index: -1;
+        }
+
+        .box span:hover::after {
+            border-radius: 0;
+            bottom: 0;
+        }
+
+        .box span a {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box span:hover a {
+            color: #111;
+        }
+
+        .heading {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: aliceblue;
+            font-size: clamp(2rem, 5vw, 6rem);
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .container h2{
+            font-size: clamp(2rem, 4.5vw, 5rem);
+            font-weight: 500;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .wrap-heading h2{
+            font-size: clamp(1.8rem, 4vw, 4rem);
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: center;
+            margin: 3rem 0 2rem;
+        }
+        .wrap{
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .card{
+            flex: 0 0 min(300px, 90%);
+            height: clamp(200px, 25vh, 300px);
+            border: 2px solid rgb(5, 5, 5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.21);
+            margin: 1rem;
+        }
+       .first-image, .second-img-card, .third-img-card {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        .first-image:hover,
+        .second-img-card:hover, .third-img-card:hover {
+            transform: scale(1.06); 
+        }
+        .foot {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 3rem;
+            padding: 2rem 1rem;
+            background: #111;
+            border-top: 2px solid #222;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .f-h {
+            color: azure;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            margin: 0;
+        }
+
+        .f2 {
+            color: azure;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            margin: 0 0 10px 0;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links ul {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-family: "Poppins";
+            line-height: 2;
+            color: whitesmoke;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .head{
+            font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+        }
+        .new-head{
+            margin-top: 4rem;
+            font-weight: 500;
+            font-size: clamp(2rem, 4vw, 4.5rem);
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .box {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .box span {
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+            }
+            .card {
+                flex: 0 0 90%;
+                height: clamp(180px, 20vh, 250px);
+            }
+            .wrap {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            .card {
+                flex: 0 0 95%;
+                height: 150px;
+                margin: 0.5rem;
+            }
+        }
+
+        .logo{
+            background-image: url(logo.png);
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            background-size: cover;
+            height: clamp(80px, 10vw, 150px);
+            width: clamp(80px, 10vw, 150px);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="heading">
+            Welcome To QUICK-LEARN
+        </div>
+    </header>
+    <nav>
+        <div class="box">
+            <span class="w"><a href="index.html">Home</a></span>
+            <span class="w"><a href="fixed_tutorial_page.html">Tutorials</a></span>
+            <span class="w"><a href="fixed_notes.html">Notes</a></span>
+            <span class="w"><a href="fixed_impact.html">Applications</a></span>
+            <span class="w al" ><a href="#">Compiler</a></span>
+            <span class="w al" ><a href="#">Languages</a></span>
+            <span class="w al" ><a href="#">Questions</a></span>
+
+        </div>
+    </nav>
+    <div class="container">
+        <h2>These are some tech companies that ask OOPS questions for interviews!!!</h2>
+        <div class="wrap-heading">
+            <h2 class="head">Product based companies</h2>
+        </div>
+        <div class="wrap">
+            <div class="card">
+                <img class="first-image" src="https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg" alt="Amazon">
+            </div>
+            <div class="card">
+                <img  class="second-img-card" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNbpIfA-_GwTVZBVlpCvdIcLVOsCxn4BmqHA&s" alt="Meta">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsZLFW9PjmQSTrcc-BfDZL_8ENLgsuz3Ov0g&s" alt="Netflix">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_GmRGk3e0E-hRMiV4_qDA0w7t_Z8x2qFTTuOle5sptSjtBB7JpcrMUMLNxanapR89Qg&usqp=CAU" alt="Cred">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR98jCraNhNzpFHPoeTV7VcS9iHpAN5_WAiVw&s" alt="Cred">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5OYuIx5YVwjchUyR4s2GSg0HGtXBaTjfUyg&s" alt="Cred">
+            </div>
+        </div>
+            <br>
+            <br>       
+            
+        <h2 class="new-head">Service based companies!!!</h2> 
+         <div class="wrap">
+            <div class="card">
+                <img class="first-image" src="https://www.tcs.com/content/dam/global-tcs/en/images/who-we-are/media-kit/tcs-light-logo.png" alt="TCS">
+            </div>
+            <div class="card">
+                <img  class="second-img-card" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb-Yi8v43ny0a9r-H3qIGqyjv-O_Bl2JGoJhpfJgMwmi3ROIDrBN8yc64KJixWUudskFQ&usqp=CAU" alt="Accenture">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdcBEiR9SC2Pmg12r9zU_6AjKQpKgsc5LXOg&s" alt="EY">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://companieslogo.com/img/orig/LTIM.NS-dea59dc6.png?t=1720244492" alt="lti">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://logos-world.net/wp-content/uploads/2020/11/ATT-Logo-2015-present.jpg" alt="AT">
+            </div>
+            <div class="card">
+                <img class ='third-img-card'src="https://media.about.nike.com/image-downloads/cf68f541-fc92-4373-91cb-086ae0fe2f88/002-nike-logos-swoosh-white.jpg" alt="Nike">
+            </div>
+        </div>
+        <footer>
+    <div class="foot">
+<h2 class="f-h">Quick-Learn</h2>
+<h2 class="f2">Links</h2>
+   
+    <div class="footer-links">
+        <h4>Links</h4>
+        <ul>
+            <li>Home</li>
+            <li>Tutorials</li>
+            <li>Compiler</li>
+            <li>Projects</li>
+            <li>Contact-Us</li>
+        </ul>
+    </div>
+    </div>
+</footer>
+    </div>
+   <script>
+        function loadpage(page) {
+            if (page === 'Compiler') {
+                alert('Compiler page will display soon');
+            }
+            else if (page === 'Languages') {
+                alert('Languages page will display soon');
+            }
+            else if (page === 'Questions') {
+                alert('Questions page will display soon');
+            }
+        }
+
+        // show Home first (optional)
+        window.onload = () => console.log("Home page loaded");
+        loadpage()
+        let alerts = document.getElementsByClassName("al");
+        for (let i = 0; i < alerts.length; i++) {
+            alerts[i].addEventListener("click", () => {
+                alert("Feature will be available soon");
+            });
+        }
+   </script>
+    <div class="logo-box">
+    <div class="logo"></div>
+    </div>
+</body>
+</html>
